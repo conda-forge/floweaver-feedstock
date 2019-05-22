@@ -1,5 +1,5 @@
 {% set name = "floweaver" %}
-{% set version = "2.0.0a4" %}
+{% set version = "2.0.0a5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b417916e8d99719f7bd7debe7a95ee4e118e05200ef52991ade086b3626b3b66
+  sha256: c4e4c13c172a757cca2e09e63c94553b9ccedc7072c97159eb4a7bc3982c316e
 
 build:
   noarch: python

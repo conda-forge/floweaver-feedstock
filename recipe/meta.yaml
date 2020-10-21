@@ -1,5 +1,5 @@
 {% set name = "floweaver" %}
-{% set version = "2.0.0a5" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c4e4c13c172a757cca2e09e63c94553b9ccedc7072c97159eb4a7bc3982c316e
+  sha256: e1ad759db0de47031e1eb831b92b3e030d94e4b459fd72755f1c6c89df4bc807
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -35,8 +35,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'View flow data as Sankey diagrams'
-  
+  summary: View flow data as Sankey diagrams
   description: |
     Many kinds of data can be thought of as 'flows': energy and materials moving
     through industry, money flowing through the economy, telephone lines moving

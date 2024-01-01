@@ -1,34 +1,38 @@
 {% set name = "floweaver" %}
-{% set version = "2.0.0" %}
+{% set version = "2.0.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e1ad759db0de47031e1eb831b92b3e030d94e4b459fd72755f1c6c89df4bc807
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/floweaver-{{ version }}.tar.gz
+  sha256: f2f7bb67af1a20137bbb05f95187d7f9be9c106b37e71650b71d6be0ac6276a3
 
 build:
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3
+    - python >=3.8
     - pip
   run:
-    - python >=3
+    - python >=3.8
     - numpy
     - pandas
-    - networkx >=2.0
-    - attrs
+    - networkx >=2.1
+    - attrs >=17.4
     - palettable
 
 test:
   imports:
     - floweaver
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://github.com/ricklupton/floweaver
@@ -47,3 +51,4 @@ about:
 extra:
   recipe-maintainers:
     - ricklupton
+    - rxm7706

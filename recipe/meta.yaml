@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: e1ad759db0de47031e1eb831b92b3e030d94e4b459fd72755f1c6c89df4bc807
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3
+    - python >={{ python_min }}
     - numpy
     - pandas
     - networkx >=2.0
@@ -27,6 +27,8 @@ requirements:
     - palettable
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - floweaver
 
